@@ -12,7 +12,7 @@ def extract_attributes(url):
     meta_data = {
         'title': attribute_extractor.extract_title(),
         'description': attribute_extractor.extract_description(),
-        'body': attribute_extractor.extract_body(),
+        # 'body': attribute_extractor.extract_body(),
         'keyword': attribute_extractor.extract_keywords(),
         'author': attribute_extractor.extract_author(),
         'publishDate': attribute_extractor.extract_publish_date(),

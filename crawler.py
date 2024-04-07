@@ -10,10 +10,12 @@ def crawl_url():
     if not url:
         return jsonify({'error': 'URL parameter is missing'}), 400
 
-    attributes = extract_attributes(url)
-    if attributes is None:
-        return jsonify({'error': 'Failed to fetch URL'}), 500
-
+    try:
+        attributes = extract_attributes(url)
+        if attributes is None:
+            return jsonify({'error': 'Failed to fetch URL'}), 500
+    except Exception as e:
+        return jsonify({'error': f'Failed to fetch URL: {str(e)}'}), 500
     return jsonify(attributes), 200
 
 
